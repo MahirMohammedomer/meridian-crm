@@ -5,7 +5,7 @@
    - navigation requests: network-first with offline fallback to cached index.html
    - Supabase / API / data requests: NEVER cached (all data lives in Dexie / IndexedDB)
 */
-const VERSION = "v1.0.0";
+const VERSION = "v1.0.1";
 const SHELL_CACHE = `meridian-shell-${VERSION}`;
 const STATIC_CACHE = `meridian-static-${VERSION}`;
 const OFFLINE_URL = "/index.html";
@@ -17,6 +17,7 @@ const SHELL_ASSETS = [
   "/icons/icon-192.png",
   "/icons/icon-512.png",
   "/icons/maskable-512.png",
+  "/icons/meridian-mark.svg",
 ];
 
 const NEVER_CACHE = [/supabase\.co/, /\/auth\/v1\//, /\/rest\/v1\//, /\/storage\/v1\//, /googleapis\.com/];

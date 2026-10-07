@@ -399,18 +399,20 @@ export function Dropdown({
     const el = triggerRef.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
-    const panelW = panelRef.current?.offsetWidth || 200;
-    const panelH = panelRef.current?.offsetHeight || 280;
+    const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const panelW = Math.min(panelRef.current?.offsetWidth || 200, viewportWidth - 16);
+    const panelH = Math.min(panelRef.current?.offsetHeight || 280, viewportHeight - 16);
     const gap = 6;
     let top = r.bottom + gap;
     let left = align === "right" ? r.right - panelW : r.left;
 
-    // Flip up if not enough space below
-    if (top + panelH > window.innerHeight - 8 && r.top > panelH + gap) {
+    // Flip up if not enough space below, then clamp both axes to the visible viewport.
+    if (top + panelH > viewportHeight - 8 && r.top > panelH + gap) {
       top = r.top - panelH - gap;
     }
-    // Keep in viewport horizontally
-    left = Math.max(8, Math.min(left, window.innerWidth - panelW - 8));
+    top = Math.max(8, Math.min(top, viewportHeight - panelH - 8));
+    left = Math.max(8, Math.min(left, viewportWidth - panelW - 8));
     setPos({ top, left, width: r.width });
   };
 
@@ -461,6 +463,10 @@ export function Dropdown({
               left: pos?.left ?? -9999,
               zIndex: 200,
               visibility: pos ? "visible" : "hidden",
+              maxWidth: "calc(100vw - 16px)",
+              minWidth: "min(190px, calc(100vw - 16px))",
+              maxHeight: "calc(100dvh - 16px)",
+              overflowY: "auto",
             }}
             className={cn(
               "min-w-[190px] overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-xl",

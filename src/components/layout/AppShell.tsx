@@ -64,31 +64,14 @@ function MeridianMark({ size = 26 }: { size?: number }) {
       style={{ width: size, height: size }}
       aria-hidden
     >
-      <svg viewBox="0 0 32 32" width={size} height={size} className="block">
-        <defs>
-          <linearGradient id="m-g" x1="0" y1="0" x2="32" y2="32">
-            <stop offset="0%" stopColor="#0f172a" />
-            <stop offset="55%" stopColor="#1e293b" />
-            <stop offset="100%" stopColor="#334155" />
-          </linearGradient>
-          <linearGradient id="m-a" x1="8" y1="6" x2="26" y2="28">
-            <stop offset="0%" stopColor="#38bdf8" />
-            <stop offset="100%" stopColor="#a78bfa" />
-          </linearGradient>
-        </defs>
-        <rect width="32" height="32" rx="10" fill="url(#m-g)" className="dark:opacity-90" />
-        {/* Horizon line */}
-        <path d="M6 18h20" stroke="url(#m-a)" strokeWidth="1.6" strokeLinecap="round" opacity="0.9" />
-        {/* Stylized M peaks */}
-        <path
-          d="M7 24V10l5.5 8.5L18 10l5.5 8.5L29 10v14"
-          fill="none"
-          stroke="white"
-          strokeWidth="2.1"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <img
+        src="/icons/meridian-mark.svg"
+        width={size}
+        height={size}
+        className="block"
+        alt=""
+        aria-hidden="true"
+      />
     </div>
   );
 }
@@ -263,7 +246,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="flex h-full w-full">
+    <div className="app-frame flex h-dvh min-h-0 w-full">
       {/* Desktop sidebar — collapsible */}
       <aside
         className={`relative hidden shrink-0 flex-col border-r border-slate-200/80 bg-white/60 backdrop-blur-xl transition-[width] duration-200 ease-out md:flex dark:border-white/[0.07] dark:bg-white/[0.02] ${
@@ -335,7 +318,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {sidebarOpen && (
         <div className="fixed inset-0 z-[90] md:hidden">
           <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px]" onClick={() => setSidebarOpen(false)} />
-          <div className="absolute inset-y-0 left-0 flex w-[270px] flex-col border-r border-slate-200 bg-white dark:border-white/10 dark:bg-[#0f1115]">
+          <div className="absolute inset-y-0 left-0 flex w-[270px] max-w-[calc(100vw-1rem)] flex-col border-r border-slate-200 bg-white dark:border-white/10 dark:bg-[#0f1115]">
             <div className="flex items-center justify-between px-5 py-[18px]">
               <div className="flex items-center gap-2.5">
                 <MeridianMark />
@@ -378,7 +361,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
       {/* Main */}
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-40 flex h-[60px] shrink-0 items-center gap-2 border-b border-slate-200/70 bg-white/80 px-3 backdrop-blur-xl md:px-5 dark:border-white/[0.07] dark:bg-[#0b0c0f]/80">
+        <header className="app-topbar sticky top-0 z-40 flex h-[60px] shrink-0 items-center gap-2 border-b border-slate-200/70 bg-white/80 px-3 backdrop-blur-xl md:px-5 dark:border-white/[0.07] dark:bg-[#0b0c0f]/80">
           <Button
             variant="ghost"
             size="icon-sm"
@@ -391,7 +374,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
           <button
             onClick={() => setPaletteOpen(true)}
-            className="group flex h-9 max-w-md flex-1 items-center gap-2.5 rounded-xl border border-slate-200 bg-white px-3 text-left text-[13px] text-slate-400 transition hover:border-slate-300 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20"
+            className="group flex h-9 min-w-0 max-w-md flex-1 items-center gap-2.5 rounded-xl border border-slate-200 bg-white px-3 text-left text-[13px] text-slate-400 transition hover:border-slate-300 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20"
           >
             <Search className="h-4 w-4 shrink-0" />
             <span className="flex-1 truncate">Search leads, projects, tasks…</span>
