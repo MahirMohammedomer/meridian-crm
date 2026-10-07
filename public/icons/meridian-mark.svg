@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="field" x1="5" y1="4" x2="59" y2="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#152540"/>
+      <stop offset="1" stop-color="#080F20"/>
+    </linearGradient>
+    <linearGradient id="needle" x1="25" y1="17" x2="40" y2="47" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9"/>
+      <stop offset="1" stop-color="#818CF8"/>
+    </linearGradient>
+    <linearGradient id="axis" x1="8" y1="32" x2="56" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8" stop-opacity=".25"/>
+      <stop offset=".5" stop-color="#A5F3FC"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity=".25"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" fill="url(#field)"/>
+  <circle cx="32" cy="32" r="22" stroke="#8EA6CC" stroke-opacity=".34" stroke-width="1.5"/>
+  <path d="M32 8v48" stroke="url(#needle)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M8 32h17m14 0h17" stroke="url(#axis)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="m32 16 7.5 16-7.5 16-7.5-16L32 16Z" fill="url(#needle)"/>
+  <path d="m32 16 7.5 16H32V16Z" fill="#E0F2FE" fill-opacity=".72"/>
+  <circle cx="32" cy="32" r="2.2" fill="#F8FAFC"/>
+  <circle cx="32" cy="8.5" r="1.7" fill="#67E8F9"/>
+</svg>

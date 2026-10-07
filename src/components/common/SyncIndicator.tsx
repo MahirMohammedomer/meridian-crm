@@ -77,7 +77,7 @@ export function SyncIndicator() {
           className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-2.5 py-1 text-[12px] font-medium transition hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
         >
           <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
-          <span className={color}>{text}</span>
+          <span className={`sync-label ${color}`}>{text}</span>
         </button>
       )}
       panelClassName="w-[340px] p-0"
