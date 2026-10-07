@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Meridian · Agency OS</title>
+    <meta name="description" content="Meridian — Personal Agency Command Center. Local-first lead pipeline, clients, projects and payments." />
+    <meta name="theme-color" content="#0b0c0f" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="AgencyOS" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512.png" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { background: #f6f7f9; }
+      @media (prefers-color-scheme: dark) { html { background: #0b0c0f; } }
+      #boot { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #64748b; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <div id="root"><div id="boot">Loading Meridian…</div></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
